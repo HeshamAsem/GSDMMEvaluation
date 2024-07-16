@@ -1,25 +1,9 @@
 # GSDMM Evaluation Parameters
-Overview
+## Overview
 This repository contains code for calculating evaluation parameters for the Gibbs Sampling Dirichlet Multinomial Mixture (GSDMM) model. GSDMM is a clustering algorithm often used for text data to uncover latent groupings or topics within a corpus. This repository provides tools to evaluate the performance and effectiveness of the GSDMM model using various evaluation metrics.
 
-Table of Contents
-Installation
-Usage
-Evaluation Metrics
-Examples
-Contributing
-License
-Installation
-Prerequisites
-Ensure you have Python 3.6+ installed. You can download it from python.org.
 
-Clone the Repository
-bash
-Copy code
-git clone https://github.com/yourusername/gsdmm-evaluation.git
-cd gsdmm-evaluation
-Create a Virtual Environment
-It is recommended to create a virtual environment to manage dependencies.
+
 
 bash
 Copy code
