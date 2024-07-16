@@ -1,62 +1,123 @@
-# GSDMM Evaluation Parameters
-## Overview
-This repository contains code for calculating evaluation parameters for the Gibbs Sampling Dirichlet Multinomial Mixture (GSDMM) model. GSDMM is a clustering algorithm often used for text data to uncover latent groupings or topics within a corpus. This repository provides tools to evaluate the performance and effectiveness of the GSDMM model using various evaluation metrics.
+# GSDMM Evaluation
 
+This repository provides an implementation of the Gibbs Sampling Dirichlet Mixture Model (GSDMM) and tools for evaluating its performance. The GSDMM algorithm is designed to identify clusters in short texts, such as tweets or forum posts.
 
+## Features
 
+- **GSDMM Implementation**: Core algorithm to perform clustering on short text data.
+- **Evaluation Metrics**: Tools to evaluate the clustering performance using various metrics.
+- **Preprocessing Utilities**: Functions to preprocess text data before clustering.
 
-bash
-Copy code
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-Install Dependencies
-Install the required packages using pip:
+## Getting Started
 
-bash
-Copy code
+### Prerequisites
+
+To run this project, you need Python 3.7+ and the following Python libraries:
+
+- numpy
+- pandas
+- scikit-learn
+- nltk
+- tqdm
+
+You can install these dependencies using `pip`:
+
+```bash
+pip install numpy pandas scikit-learn nltk tqdm
+```
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/HeshamAsem/GSDMMEvaluation.git
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd GSDMMEvaluation
+```
+
+3. Install the required packages:
+
+```bash
 pip install -r requirements.txt
-Usage
-Running the Evaluation
-The main script to run the evaluation is evaluate_gsdmm.py. It takes as input the results from a GSDMM model and computes various evaluation metrics.
+```
 
-bash
-Copy code
-python evaluate_gsdmm.py --input results.json --output evaluation.json
-Arguments
---input: Path to the input JSON file containing the GSDMM model results.
---output: Path to the output JSON file where evaluation results will be saved.
-Evaluation Metrics
-The following evaluation metrics are calculated by the code:
+### Usage
 
-Perplexity: Measures how well the model predicts a sample.
-Normalized Mutual Information (NMI): Measures the similarity between the clustering results and the ground truth.
-Adjusted Rand Index (ARI): Evaluates the clustering performance by considering all pairs of samples and counting pairs that are assigned in the same or different clusters in the predicted and true clusterings.
-Silhouette Score: Measures how similar an object is to its own cluster compared to other clusters.
-Examples
-Example Input JSON
-The input JSON file should have the following structure:
+1. **Data Preparation**: Prepare your dataset as a CSV file with a column for text data. An example dataset is provided in the `data` directory.
 
-json
-Copy code
-{
-    "documents": ["doc1", "doc2", "doc3", ...],
-    "cluster_assignments": [0, 1, 1, ...],
-    "vocabulary": ["word1", "word2", "word3", ...],
-    "word_counts": [[count1, count2, ...], [count1, count2, ...], ...]
-}
-Example Output JSON
-The output JSON file will have the evaluation results:
+2. **Running the GSDMM Algorithm**:
 
-json
-Copy code
-{
-    "perplexity": 123.45,
-    "nmi": 0.67,
-    "ari": 0.78,
-    "silhouette_score": 0.56
-}
-Contributing
-Contributions are welcome! Please read the CONTRIBUTING.md for guidelines on how to contribute to this project.
+```python
+from gsdmm import MovieGroupProcess
 
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+# Example data
+texts = ["text1", "text2", "text3"]
+
+# Preprocess texts (tokenization, stop word removal, etc.)
+# ...
+
+# Initialize the GSDMM model
+mgp = MovieGroupProcess(K=10, alpha=0.1, beta=0.1, n_iters=30)
+
+# Fit the model to the texts
+vocab = set(word for text in texts for word in text)
+n_terms = len(vocab)
+doc_term_matrix = [[text.count(word) for word in vocab] for text in texts]
+
+y = mgp.fit(doc_term_matrix, n_terms)
+```
+
+3. **Evaluating the Clustering Performance**:
+
+```python
+from evaluation import evaluate
+
+# Evaluate the clustering result
+metrics = evaluate(true_labels, predicted_labels)
+print(metrics)
+```
+
+### Examples
+
+Check the `examples` directory for Jupyter notebooks demonstrating how to use the GSDMM implementation and evaluate its performance on sample datasets.
+
+## Project Structure
+
+- `gsdmm`: Contains the implementation of the GSDMM algorithm.
+- `evaluation`: Contains tools for evaluating the clustering performance.
+- `data`: Directory for storing datasets.
+- `examples`: Jupyter notebooks with example usage.
+- `requirements.txt`: List of required Python packages.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+
+### Steps to Contribute
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-branch`
+3. Commit your changes: `git commit -m 'Add new feature'`
+4. Push to the branch: `git push origin feature-branch`
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+This project is based on the work by Hesham Asem. Special thanks to the authors of the original GSDMM algorithm.
+
+## Contact
+
+For any questions or inquiries, please contact [Hesham Asem](https://github.com/HeshamAsem).
+
+---
+
+Happy Clustering! 🚀
