@@ -112,7 +112,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgements
 
-This project is based on the work by Hesham Asem. Special thanks to the authors of the original GSDMM algorithm.
+This project is based on the work by Hesham Abdelmotaleb, University of Plymouth, under supervision of Dr Malgorzata Wjoyts, and Dr Craig Mcneile. Special thanks to the authors of the original GSDMM algorithm.
 
 ## Contact
 
