@@ -144,6 +144,18 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 This project is based on the work by Hesham Abdelmotaleb, University of Plymouth, under supervision of Dr Malgorzata Wojtys, and Dr Craig McNeile. Special thanks to the authors of the original GSDMM algorithm.
 
+## Paper : 
+
+https://avestia.com/ICSTA2023_Proceedings/files/paper/ICSTA_116.pdf
+
+@article{abdelmotaleb2023comparison,
+  title={A comparison of a novel optimized GSDMM Model with K-means clustering for topic modelling of free text},
+  author={Abdelmotaleb, Hesham and Wojtys, Malgorzata and McNeile, Craig},
+  year={2023}
+}
+
+
+
 ## Contact
 
 For any questions or inquiries, please contact [Hesham Asem](https://github.com/HeshamAsem).
