@@ -40,11 +40,19 @@ git clone https://github.com/HeshamAsem/GSDMMEvaluation.git
 cd GSDMMEvaluation
 ```
 
-3. Install the required packages:
+3. Install the FastText library
 
 ```bash
-pip install -r requirements.txt
+!pip install fasttext
 ```
+
+
+4. Install the GSDMM Package
+
+```bash
+!pip install git+https://github.com/rwalk/gsdmm.git
+```
+
 
 ### Usage
 
@@ -81,6 +89,28 @@ from evaluation import evaluate
 metrics = evaluate(true_labels, predicted_labels)
 print(metrics)
 ```
+
+
+### FastText Library
+
+The GSDMM Evaluation repository utilizes the FastText library to generate word embeddings, which are essential for capturing semantic similarities between words in our text clustering tasks. FastText, developed by Facebook's AI Research (FAIR) lab, is a library designed for efficient learning of word representations and text classification.
+
+Features of FastText
+
+- **Subword Information**: FastText considers subword information, which allows it to generate embeddings for rare and out-of-vocabulary words by breaking them down into n-grams.
+- **Efficiency**: It is highly efficient in terms of both speed and memory usage, making it suitable for large datasets and real-time applications.
+- **Pre-trained Models**: FastText offers pre-trained word vectors for 157 languages, which can be fine-tuned on specific tasks.
+
+
+Additional Resources
+
+- [FastText GitHub Repository](https://github.com/facebookresearch/fastText)
+- [FastText Documentation](https://fasttext.cc/docs/en/support.html)
+- [Pre-trained FastText Models](https://fasttext.cc/docs/en/crawl-vectors.html)
+
+Using FastText enhances the GSDMM Evaluation project by providing robust and efficient word embeddings, crucial for high-quality text clustering.
+
+
 
 ### Examples
 
